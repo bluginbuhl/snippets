@@ -10,15 +10,15 @@ def move_v(pixels):
     moveRel(0, pixels)
 
 
-keep_running = True
-
-
 def no_screensaver():
     move_hz(25)
     move_hz(-25)
     print('Mouse moved.')
     time.sleep(60)
 
+
+# comment all lines below to disable automatic movement
+keep_running = True
 
 while keep_running:
     no_screensaver()
