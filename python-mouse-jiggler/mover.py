@@ -1,3 +1,4 @@
+# execute this .py file to enable automatic mouse movements
 from pyautogui import moveRel
 import time
 
@@ -22,7 +23,6 @@ keep_running = True
 
 while keep_running:
     no_screensaver()
-
 
 if __name__ == '__main__':
     no_screensaver()
