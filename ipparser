@@ -1,0 +1,13 @@
+#!usr/bin/python3
+
+import json
+import requests
+
+data = requests.get('http://ip-api.com/json').json()
+
+ipv4 = data['query']
+city = data['city']
+region = data['region']
+country = data['countryCode']
+
+print(f"{ipv4}\n{city}, {region}, {country}")
