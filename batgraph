@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+
+import csv
+import matplotlib.pyplot as plt
+import numpy as np
+
+path = '$HOME/.local/share/battery-life.csv'
+
+time=[]
+cap=[]
+
+with open(path, 'r') as csvfile:
+    data = csv.reader(csvfile, delimiter=',')
+    for row in data:
+        time.append(row[0])
+        cap.append(int(row[1]))
+
+border_color = '#d5c4a1'
+axis_color = '#a89984'
+
+fig, ax = plt.subplots(1, figsize=(20, 10))
+
+plt.plot(time, cap, linewidth=5.0, color='#00f0f0')
+fig.patch.set_facecolor('#002020')
+ax.grid(color=axis_color)
+ax.set_facecolor('#333333')
+ax.set_ylabel('Battery Percentage', fontsize=20)
+ax.set_xlabel('5 Minute Intervals', fontsize=20)
+ax.yaxis.label.set_color(axis_color)
+ax.xaxis.label.set_color(axis_color)
+ax.tick_params(axis='y', colors=axis_color, labelsize=20)
+ax.set_yticks(np.arange(5, 105, 5))
+ax.set_xticklabels([])
+ax.set_ylim([0, 105])
+
+for spine in ax.spines:
+    ax.spines[spine].set_color(border_color)
+    ax.spines[spine].set_linewidth(3)
+
+plt.show()
